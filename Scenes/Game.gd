@@ -2,6 +2,7 @@ extends Node
 
 var client = WebSocketClient.new()
 
+var phone_number = null
 var code = null
 
 var full_transcript = ""
@@ -27,8 +28,12 @@ func _connected(proto = ""):
 func _on_data():
 	var message = client.get_peer(1).get_packet().get_string_from_utf8()
 	
-	if code == null:
+	if phone_number == null:
+		phone_number = message
+		$CanvasLayer/MarginContainer/VBoxContainer/PhoneNumberLabel.text = "PHONE NUMBER: " + message
+	elif code == null:
 		code = message
+		$CanvasLayer/MarginContainer/VBoxContainer/CodeLabel.text = "CODE: " + code
 	else:
 		var message_json = JSON.parse(message)
 		if message_json.error == OK:
@@ -39,7 +44,7 @@ func _on_data():
 						if full_transcript != "":
 							full_transcript += " "
 						full_transcript += transcript
-						$CanvasLayer/StreamingTranscriptLabel.text = full_transcript
+						$CanvasLayer/MarginContainer/VBoxContainer/StreamingTranscriptLabel.text = full_transcript
 					
 
 func _process(_delta):
