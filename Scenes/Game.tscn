@@ -33,16 +33,23 @@ margin_bottom = 20.0
 theme = ExtResource( 2 )
 text = "CODE:"
 
-[node name="TranscriptLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="PizzaLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 margin_top = 24.0
 margin_right = 312.0
 margin_bottom = 32.0
 theme = ExtResource( 2 )
-text = "TRANSCRIPT:"
+text = "PIZZA:"
 
-[node name="StreamingTranscriptLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="TranscriptLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 margin_top = 36.0
 margin_right = 312.0
 margin_bottom = 44.0
+theme = ExtResource( 2 )
+text = "TRANSCRIPT:"
+
+[node name="StreamingTranscriptLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 312.0
+margin_bottom = 56.0
 theme = ExtResource( 2 )
 autowrap = true
